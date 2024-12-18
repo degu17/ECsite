@@ -33,7 +33,7 @@ export default function ProductsPage() {
   ];
 
   return (
-    <div className="container py-8">
+    <div className="container mx-auto px-8 py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">商品一覧</h1>
         <Button asChild variant="outline">
@@ -41,11 +41,11 @@ export default function ProductsPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-[90%] mx-auto">
         {products.map((product) => (
           <Card key={product.id} className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-4">
-              <div className="relative aspect-square mb-4">
+            <CardContent className="p-3">
+              <div className="relative aspect-square mb-3">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -53,13 +53,13 @@ export default function ProductsPage() {
                   className="object-cover rounded-md"
                 />
               </div>
-              <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-              <p className="text-gray-600 mb-2">{product.description}</p>
+              <h2 className="text-lg font-semibold mb-1">{product.name}</h2>
+              <p className="text-gray-600 text-sm mb-2">{product.description}</p>
               <div className="flex justify-between items-center">
-                <p className="text-lg font-bold text-primary">
+                <p className="text-base font-bold text-primary">
                   ¥{product.price.toLocaleString()}
                 </p>
-                <Button asChild>
+                <Button size="sm" asChild>
                   <Link href={`/products/${product.id}`}>詳細を見る</Link>
                 </Button>
               </div>
